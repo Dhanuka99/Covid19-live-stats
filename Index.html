@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <link rel="stylesheet" type="text/css" href="/home/dhanuka/Covid19-live-stats/css/style.css">
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,19 +15,20 @@
   <title>COVID 19 | Live Stats</title>
 </head>
 
-<body>
+<body  >
 
+<div class="p-3 mb-2 bg-dark text-white" align="center"><b>Covid-19 Corona virus leatest Report</b> </div>
 
   <div class="container-sm">
 
     <center>
-      <div class="alert alert-warning" role="alert">
+      <div class="alert alert-warning" role="alert" >
         <p id="demo"></p>
       </div>
 
 
       <div class="alert alert-danger" role="alert">
-        Local Corona Details
+        <b>Local Corona Details</b>
       </div>
 
 
@@ -36,7 +38,7 @@
           <div class="card" style="width: 18rem;">
             <i style="color: green" class="fa fa-medkit fa-5x card-img-top" aria-hidden="true"></i>
             <div class="card-body">
-              <h5 class="card-title">Local Recovered</h5>
+              <h5 class="card-title"><b>Local Recovered</b></h5>
               <p id="local_recovered" class="card-text"></p>
             </div>
           </div>
@@ -46,7 +48,8 @@
           <div class="card" style="width: 18rem;">
             <i style="color: blue" class="fa fa-male fa-5x card-img-top" aria-hidden="true"></i>
             <div class="card-body">
-              <h5 class="card-title">Local Deaths</h5>
+
+              <h5 class="card-title"><b>Local Deaths</b></h5>
               <p id="local_deaths" class="card-text"></p>
             </div>
           </div>
@@ -57,7 +60,7 @@
           <div class="card" style="width: 18rem;">
             <i style="color: red" class="fa fa-bug fa-5x card-img-top" aria-hidden="true"></i>
             <div class="card-body">
-              <h5 class="card-title">Total Infected</h5>
+              <h5 class="card-title"><b>Total Infected</b></h5>
               <p id="local_total_cases" class="card-text"></p>
             </div>
           </div>
@@ -67,7 +70,7 @@
           <div class="card" style="width: 18rem;">
             <i style="color: yellow" class="fa fa-calendar-plus-o fa-5x card-img-top" aria-hidden="true"></i>
             <div class="card-body">
-              <h5 class="card-title">Local Active Cases</h5>
+              <h5 class="card-title"><b>Local Active Cases</b></h5>
               <p id="local_active_cases" class="card-text"></p>
             </div>
           </div>
@@ -78,7 +81,7 @@
       <!-- Starting Global Dashboard-->
 
       <div class="alert alert-success" role="alert" align="center">
-        Global Reports
+        <b>Global Reports</b>
       </div>
 
       <center class="row">
@@ -87,19 +90,45 @@
           <div class="card" style="width: 18rem;">
             <i style="color: yellow" class="fa fa-calendar-plus-o fa-5x card-img-top" aria-hidden="true"></i>
             <div class="card-body">
-              <h5 class="card-title">Global Active Cases</h5>
-              <p id="global_total_cases" class="card-text"></p>
+              <h5 class="card-title"><b>Global Active Cases</b></h5>
+              <p id="global_total_cases" class="card-text" ></p>
             </div>
           </div>
         </div>
 
         <!-- Card 2-->
-
+            <div class="col-sm-6">
+          <div class="card" style="width: 18rem;">
+            <i style="color: red" class="fa fa-globe fa-5x card-img-top" aria-hidden="true"></i>
+            <div class="card-body">
+              <h5 class="card-title"><b>Global Deaths</b></h5>
+              <p id="global_deaths" class="card-text"></p>
+            </div>
+          </div>
+        </div>
 
         <!-- Card 3-->
+                <div class="col-sm-6">
+          <div class="card" style="width: 18rem;">
+            <i style="color: orange" class="fa fa-user-circle-o fa-5x card-img-top" aria-hidden="true"></i>
+            <div class="card-body">
+              <h5 class="card-title"><b>Global Recovered</b></h5>
+              <p id="global_recovered" class="card-text"></p>
+            </div>
+          </div>
+        </div>
 
 
         <!-- Card 4-->
+                <div class="col-sm-6">
+          <div class="card" style="width: 18rem;">
+            <i style="color: black" class="fa fa-area-chart fa-5x card-img-top" aria-hidden="true"></i>
+            <div class="card-body">
+              <h5 class="card-title"><b>Global New Deaths</b></h5>
+              <p id="global_new_deaths" class="card-text"></p>
+            </div>
+          </div>
+        </div>
 
       </center>
 
@@ -118,6 +147,11 @@
         document.getElementById("local_active_cases").innerHTML = myObj.data.local_active_cases;
 
         document.getElementById("global_total_cases").innerHTML = myObj.data.global_total_cases;
+        document.getElementById("global_deaths").innerHTML = myObj.data.global_deaths;
+        document.getElementById("global_recovered").innerHTML = myObj.data.global_recovered;
+        document.getElementById("global_new_deaths").innerHTML = myObj.data.global_new_deaths;
+
+
       }
     };
     xmlhttp.open("GET", "https://hpb.health.gov.lk/api/get-current-statistical", true);
